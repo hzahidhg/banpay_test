@@ -20,7 +20,7 @@ Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 class Base(DeclarativeBase):
     pass
 
-def get_db():
+def get_session():
     db = Session()
     try:
         return db
