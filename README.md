@@ -41,6 +41,10 @@ Para poder ejecutar el proyecto es necesario tener instalado lo siguiente:
 └── README.md                   # Documentación del proyecto
 ```
 
+## Diagrama ER de la base de datos
+
+![bd_er](img/bd_er.png)
+
 ## Instalación
 
 1. Clonar el repositorio:
