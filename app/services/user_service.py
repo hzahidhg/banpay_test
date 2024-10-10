@@ -23,11 +23,12 @@ def create_user_database(db_session: Session, data):
         db_session.add(new_user)
         db_session.commit()
         db_session.refresh(new_user)
+        
+        return new_user
     except Exception as error:
         print(error)
         raise HTTPException(500, "Internal Server Error")
     
-    return new_user
 
 def list_users(db_session: Session):
     try:
@@ -54,6 +55,17 @@ def user_detail(id_user, db_session: Session):
     try:
         user = db_session.query(Users).filter(
             Users.id==id_user
+        ).first()
+        
+        return user
+    except Exception as error:
+        print(error)
+        raise HTTPException(500, "Internal Server Error")
+    
+def user_by_email(email, db_session: Session):
+    try:
+        user = db_session.query(Users).filter(
+            Users.email==email
         ).first()
         
         return user
